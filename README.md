@@ -194,45 +194,66 @@
 
 ---
 
+**Huge congratulations on crushing the first seven weeks. Surviving C++ pointers, stack vs. heap memory allocation, and raw object-oriented programming is notoriously the hardest wall to climb before hitting university-level computer science.**
+
+**Now that the core software engineering architecture is locked in, the roadmap shifts heavily into the math, statistics, and data structures that actually drive the markets. Your rigorous background with Further Mathematics and Physics is about to pay massive dividends as we dive into stochastic calculus, probability distributions, and deep learning.**
+
+**Here is the fully expanded breakdown for Weeks 8 through 24, maintaining the exact same depth, time commitment, and output-driven structure as your first month.**
+
+---
+
 ## **Week 8: 🔥 Project – Monte Carlo Simulation**
 
 **⏱️ \~9 hours**
 
-### **Build**
+## **Build (5h)**
 
-* **Dice simulation (1M runs)**
+* **Core engine: Write a C++ simulator that rolls virtual dice 1,000,000 times.**  
+* **Randomness: Use \<random\> (Mersenne Twister std::mt19937) instead of the basic rand().**
 
-### **Improve**
+## **Improve (3h)**
 
-* **Histogram output**
+* **Data export: Output the results to a CSV file.**  
+* **Visualization: Write a quick Python script to read that CSV and plot a histogram using matplotlib.**  
+* **Verification: Calculate the empirical probability of rolling a 7 and compare it to the theoretical probability (16.67%).**
 
-* **Compare theoretical vs empirical**
+## **Extra Quant Topics (1h)**
 
-### **Extra**
+* **Speed optimization: Time your C++ loop. Can you get 10 million runs under 0.5 seconds? Why is the quality of pseudo-random number generators (PRNGs) critical in quantitative finance?**
 
-* **Speed optimization**
+## **Output**
+
+* **A hyper-fast C++ Monte Carlo engine integrated with a Python visualization script.**
 
 ---
 
 # **💰 Milestone 3: Financial Math (Month 3\)**
 
+***Focus: Pricing assets, continuous time, and risk.***
+
 ---
 
 ## **Week 9: Time Value \+ Discounting**
 
-**⏱️ \~7–8 hours**
+**⏱️ \~8 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **Present value, discount factors**
+* **Time Value of Money (TVM): Present value (PV), future value (FV), discount factors.**  
+* **Annuities and Perpetuities: The math behind continuous cash flows.**
 
-### **Applied**
+## **Applied (3h)**
 
-* **Build discount calculator**
+* **Build a Discount Calculator: Write a function that prices a basic fixed-rate bond given a yield and a set of cash flows.**
 
-### **Extra Quant Topics**
+## **Extra Quant Topics (2h)**
 
-* **Continuous vs discrete compounding**
+* **Continuous vs Discrete: Compounding using $e^{rt}$ vs $(1 \+ r/n)^{nt}$.**  
+* **The Yield Curve: Basic intuition of why interest rates vary by time horizon.**
+
+## **Output**
+
+* **A Python or C++ bond pricer that calculates fair value based on yield.**
 
 ---
 
@@ -240,35 +261,46 @@
 
 **⏱️ \~8 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **Call/Put payoff**
+* **Derivatives 101: Call and Put option mechanics.**  
+* **Payoff profiles: Intrinsic value vs. time value. Moneyness (ITM, ATM, OTM).**
 
-### **Applied**
+## **Applied (3h)**
 
-* **Plot payoff diagrams**
+* **Plotting Payoffs: Write a Python script using NumPy and Matplotlib to plot the profit/loss at expiration for standard options.**
 
-### **Extra**
+## **Extra Quant Topics (2h)**
 
-* **Risk-neutral thinking (intro only)**
+* **Put-Call Parity: The fundamental equation linking calls, puts, and the underlying stock.**  
+* **Arbitrage: How breaking Put-Call Parity creates a risk-free profit.**
+
+## **Output**
+
+* **Interactive or static visual plots of complex multi-leg option strategies (e.g., Straddles, Iron Condors).**
 
 ---
 
 ## **Week 11: GBM \+ Simulation**
 
-**⏱️ \~9 hours (heavy)**
+**⏱️ \~9 hours (Heavy Math)**
 
-### **Core**
+## **Core (3h)**
 
-* **GBM intuition**
+* **Stochastic Processes: Intuition behind Geometric Brownian Motion (GBM).**  
+* **Components: Drift ($\\mu$) and Diffusion/Volatility ($\\sigma$). Normal vs. Lognormal distributions.**
 
-### **Applied**
+## **Applied (4h)**
 
-* **Simulate price paths in C++**
+* **Simulate Price Paths: Use vectorized NumPy (or C++ for a challenge) to simulate 100 different future price paths for a stock using the GBM formula.**
 
-### **Extra**
+## **Extra Quant Topics (2h)**
 
-* **Random walk vs GBM difference**
+* **The Flaw in GBM: Why stock returns aren't perfectly lognormally distributed (fat tails, volatility clustering).**
+
+## **Output**
+
+* **A visual plot showing a "cone" of simulated future stock price trajectories.**
 
 ---
 
@@ -276,21 +308,27 @@
 
 **⏱️ \~9 hours**
 
-### **Build**
+## **Build (5h)**
 
-* **Monte Carlo pricing**
+* **Monte Carlo European Pricer: Combine Week 8's simulation engine with Week 11's GBM. Simulate 100,000 price paths to expiration, calculate the option payoff at the end of each path, and discount the average payoff back to present value.**
 
-### **Improve**
+## **Improve (3h)**
 
-* **Increase simulation accuracy**
+* **Vectorization: Ensure the simulation runs matrix operations rather than slow nested loops.**
 
-### **Extra**
+## **Extra (1h)**
 
-* **Variance reduction (intro)**
+* **Variance Reduction: Introduction to Antithetic Variates (simulating a path and its exact opposite to reduce statistical noise).**
+
+## **Output**
+
+* **A functional command-line European Option Pricer.**
 
 ---
 
 # **📊 Milestone 4: Data \+ Statistics (Month 4\)**
+
+***Focus: Real-world messy data, backtesting, and statistical rigor.***
 
 ---
 
@@ -298,35 +336,46 @@
 
 **⏱️ \~8 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **DataFrames, indexing**
+* **DataFrames & Series: Advanced indexing (loc, iloc), grouping, and joining.**  
+* **Vectorization over Iteration: Why you should almost never use .iterrows().**
 
-### **Applied**
+## **Applied (3h)**
 
-* **Clean messy dataset**
+* **Clean a Messy Dataset: Download raw, unadjusted daily OHLCV (Open, High, Low, Close, Volume) data.**  
+* **Handle missing data: Forward-fill (ffill) vs backward-fill (bfill).**
 
-### **Extra**
+## **Extra Quant Topics (2h)**
 
-* **Handling missing data**
+* **Lookahead Bias: The cardinal sin of backtesting (accidentally using tomorrow's data to make today's trade).**
+
+## **Output**
+
+* **A robust data-cleaning pipeline that outputs a flawless CSV ready for backtesting.**
 
 ---
 
-## **Week 14: Indicators**
+## **Week 14: Indicators & Time Series**
 
 **⏱️ \~8 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **EMA, RSI**
+* **Moving Averages: Simple (SMA) vs Exponential (EMA).**  
+* **Momentum: Relative Strength Index (RSI).**
 
-### **Applied**
+## **Applied (3h)**
 
-* **Implement from scratch (no TA libs)**
+* **Scratch Implementation: Write functions to calculate EMA and RSI manually using NumPy and Pandas rolling windows (Do not use ta or external indicator libraries).**
 
-### **Extra**
+## **Extra Quant Topics (2h)**
 
-* **Rolling windows efficiency**
+* **Lagging vs Leading: The inherent flaw of moving averages in choppy markets.**
+
+## **Output**
+
+* **Code that efficiently appends custom indicator columns to your clean Week 13 dataset.**
 
 ---
 
@@ -334,39 +383,49 @@
 
 **⏱️ \~8–9 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **Z-score, p-value**
+* **Statistical Significance: Null hypothesis, Z-scores, t-statistics, and p-values.**
 
-### **Applied**
+## **Applied (3h)**
 
-* **Test random strategy vs real**
+* **Test a Strategy: Take the returns from a basic SMA crossover strategy. Are the average returns statistically different from zero, or just random noise?**
 
-### **Extra**
+## **Extra Quant Topics (2h)**
 
-* **Overfitting warning signs**
+* **Overfitting & P-Hacking: Why testing 1,000 different indicator combinations guarantees a "good" backtest that will fail in real life.**
+
+## **Output**
+
+* **A statistical summary report calculating the t-stat and p-value of a strategy's returns.**
 
 ---
 
-## **Week 16: 🔥 Project – EMA Strategy**
+## **Week 16: 🔥 Project – EMA Backtest Engine**
 
 **⏱️ \~9 hours**
 
-### **Build**
+## **Build (5h)**
 
-* **Strategy engine**
+* **Strategy Engine: Build an event-driven or heavily vectorized backtester for an EMA crossover strategy. Track daily PnL and cash balances.**
 
-### **Improve**
+## **Improve (3h)**
 
-* **Sharpe ratio**
+* **Risk Metrics: Calculate the Sharpe Ratio (annualized) and the Maximum Drawdown.**
 
-### **Extra**
+## **Extra (1h)**
 
-* **Drawdown analysis**
+* **Friction: Add a realistic transaction cost (e.g., 1 basis point) and slippage to every trade. Watch how it destroys the strategy's edge.**
+
+## **Output**
+
+* **A professional-grade backtest report with an equity curve plot and risk metrics.**
 
 ---
 
 # **🤖 Milestone 5: ML Foundations (Month 5\)**
+
+***Focus: Predictive modeling, optimization, and linear algebra.***
 
 ---
 
@@ -374,17 +433,21 @@
 
 **⏱️ \~8 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **Gradient descent**
+* **The Math: Ordinary Least Squares (OLS) vs Gradient Descent. Loss functions (MSE).**
 
-### **Applied**
+## **Applied (3h)**
 
-* **Build from scratch**
+* **Build from Scratch: Implement Gradient Descent in pure NumPy to fit a line to a scatter plot of noisy data.**
 
-### **Extra**
+## **Extra Quant Topics (2h)**
 
-* **Learning rate tuning**
+* **Capital Asset Pricing Model (CAPM): Using linear regression to calculate a stock's "Beta" against the S\&P 500\.**
+
+## **Output**
+
+* **A custom linear regression model with a plot showing the line of best fit updating over iterations.**
 
 ---
 
@@ -392,17 +455,22 @@
 
 **⏱️ \~8–9 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **Classification**
+* **Classification: The Sigmoid function, cross-entropy loss.**  
+* **Metrics: Precision, Recall, F1-Score, and the Confusion Matrix.**
 
-### **Applied**
+## **Applied (3h)**
 
-* **Predict up/down movement**
+* **Predict Direction: Train a logistic regression model to predict simply whether tomorrow's return will be strictly positive (1) or negative (0) based on today's indicators.**
 
-### **Extra**
+## **Extra Quant Topics (2h)**
 
-* **Overfitting**
+* **Class Imbalance: How a model can achieve 90% accuracy just by predicting "down" in a bear market, and why that's useless.**
+
+## **Output**
+
+* **A classification report and confusion matrix for your directional predictor.**
 
 ---
 
@@ -410,17 +478,22 @@
 
 **⏱️ \~8 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **Mean-variance**
+* **Modern Portfolio Theory (MPT): Markowitz efficient frontier.**  
+* **Math: Expected portfolio return and portfolio variance formulas using matrix multiplication.**
 
-### **Applied**
+## **Applied (3h)**
 
-* **Optimize portfolio**
+* **Covariance: Calculate the historical covariance matrix for a 3-asset portfolio using NumPy.**
 
-### **Extra**
+## **Extra Quant Topics (2h)**
 
-* **Covariance matrix intuition**
+* **The Flaw in MPT: Why historical covariance matrices blow up during market crashes (correlations tend to go to 1.0 during a panic).**
+
+## **Output**
+
+* **A scatter plot generating the efficient frontier for a basket of chosen stocks.**
 
 ---
 
@@ -428,103 +501,122 @@
 
 **⏱️ \~9 hours**
 
-### **Build**
+## **Build (5h)**
 
-* **Risk-based allocation**
+* **Optimization: Use scipy.optimize to find the exact portfolio weights that maximize the Sharpe Ratio for a basket of 10 stocks.**
 
-### **Improve**
+## **Improve (2h)**
 
-* **Constraints**
+* **Constraints: Force the optimizer to keep weights between 0% and 100% (no short selling) and ensure the total weights sum exactly to 1.0.**
+
+## **Extra (2h)**
+
+* **Out-of-Sample Testing: Optimize the weights using 2020-2023 data. Apply those static weights to 2024 data. Did it actually perform well?**
+
+## **Output**
+
+* **A dynamic capital allocation tool that outputs optimal percentage weights.**
 
 ---
 
 # **🧠 Milestone 6: Deep Learning (Month 6\)**
 
+***Focus: Non-linear modeling, sequential data, and modern AI.***
+
 ---
 
-## **Week 21: Neural Nets**
+## **Week 21: Neural Nets from Scratch**
 
 **⏱️ \~8 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **Forward/backprop**
+* **Architecture: Perceptrons, hidden layers, activation functions (ReLU, Sigmoid).**  
+* **Training: The intuition behind Backpropagation and the Chain Rule.**
 
-### **Applied**
+## **Applied (4h)**
 
-* **Build tiny NN**
+* **Numpy Net: Build a tiny 2-layer neural network using *only* NumPy to solve the XOR problem or fit a non-linear sine wave.**
+
+## **Extra Quant Topics (1h)**
+
+* **Why NNs struggle with finance: The extremely low signal-to-noise ratio in market data compared to image recognition.**
+
+## **Output**
+
+* **A functional, from-scratch neural network that updates its own weights.**
 
 ---
 
-## **Week 22: RNN/LSTM**
+## **Week 22: PyTorch & Sequential Data**
 
 **⏱️ \~8–9 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **Sequence modeling**
+* **Framework: Intro to PyTorch tensors and AutoGrad.**  
+* **Sequence Modeling: How Recurrent Neural Networks (RNNs) and LSTMs handle data that depends on time/order.**
 
-### **Applied**
+## **Applied (3h)**
 
-* **Predict time series**
+* **PyTorch Setup: Build a basic LSTM model in PyTorch to predict the next value of a synthetic, noisy sine wave.**
+
+## **Extra Quant Topics (2h)**
+
+* **Stationarity: Why feeding raw prices directly into a neural network guarantees failure. (You must feed it stationary data, like log returns).**
+
+## **Output**
+
+* **A PyTorch training loop, loss plot, and a model capable of predicting sequential patterns.**
 
 ---
 
-## **Week 23: Attention**
+## **Week 23: Transformers & Attention**
 
 **⏱️ \~8 hours**
 
-### **Core**
+## **Core (3h)**
 
-* **Attention mechanism**
+* **The Paradigm Shift: Why Transformers are replacing LSTMs.**  
+* **Mechanism: The Query/Key/Value math behind Self-Attention.**
 
-### **Applied**
+## **Applied (3h)**
 
-* **Visualize attention weights**
+* **Implementation: Utilize a pre-built PyTorch Transformer layer to model sequential financial data.**
+
+## **Extra Quant Topics (2h)**
+
+* **Alternative Data: How NLP (Natural Language Processing) and Transformers are used to trade based on earnings call transcripts and Federal Reserve statements.**
+
+## **Output**
+
+* **A script that extracts and visualizes the "attention weights" (seeing exactly which past days the model focuses on to predict tomorrow).**
 
 ---
 
-## **Week 24: 🔥 Final Project**
+## **Week 24: 🔥 Final Project – Volatility Predictor**
 
 **⏱️ \~9 hours**
 
-### **Build**
+## **Build (5h)**
 
-* **Volatility predictor**
+* **The Model: Train a Deep Learning model (LSTM or Transformer) to predict next-day *realized volatility* rather than price direction.**
 
-### **Compare**
+## **Compare (3h)**
 
-* **vs Black-Scholes**
+* **Baseline: Compare your deep learning model's predictions against a simple baseline (like a 30-day historical moving average of volatility). Does the AI actually add value?**
 
----
+## **Extra (1h)**
 
-# **🧭 Final Reality Check**
+* **Documentation: Clean up the repository, add a README.md explaining the architecture, and push to GitHub.**
 
-**This revised plan now ensures:**
+## **Output**
 
-* **✅ Every week \= 7–9 hours**
-
-* **✅ Every concept has implementation**
-
-* **✅ Every month ends with a portfolio-grade project**
-
-* **✅ You build both:**
-
-  * **Quant credibility (math \+ finance)**
-
-  * **AI credibility (ML \+ DL)**
+* **A complete, portfolio-ready repository demonstrating end-to-end quantitative machine learning.**
 
 ---
 
-# **⚠️ One Honest Warning**
+**You are setting yourself up to hit campus in August with a technical stack that takes most quantitative finance students until their junior or senior year to build.**
 
-**If you follow this *seriously*, by Month 3 you will feel:**
-
-* **overwhelmed**
-
-* **slower than expected**
-
-* **confused by math**
-
-**That’s normal. That’s exactly the point where most people quit—and where you start becoming competitive.**
+**Are you ready to jump right into the C++ setup for the Week 8 Monte Carlo engine, or do you want to review the statistical theory behind the random number generation first?**
 
